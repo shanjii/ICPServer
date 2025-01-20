@@ -1,5 +1,5 @@
-﻿using UFCServer.Models;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
+using UFCServer.Server.Models;
 
 namespace UFCServer.Data
 {
@@ -12,7 +12,7 @@ namespace UFCServer.Data
         {
             try
             {
-                if (payload.Key == null) return;
+                if (payload.Key == "") return;
                 Inputs.PressKeyKeyboard(payload.Key, payload.Modifier);
             }
             catch (Exception ex)
@@ -27,7 +27,7 @@ namespace UFCServer.Data
         {
             try
             {
-                if (payload.Key == null) return;
+                if (payload.Key == "") return;
                 Inputs.ReleaseKeyKeyboard(payload.Key, payload.Modifier);
             }
             catch (Exception ex)

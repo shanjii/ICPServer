@@ -2,7 +2,7 @@
 using System.Net;
 using System.IO;
 using System.Text.Json;
-using UFCServer.Models;
+using UFCServer.Server.Models;
 
 namespace UFCServer.Utils
 {

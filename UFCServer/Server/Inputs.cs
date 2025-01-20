@@ -13,7 +13,7 @@ namespace UFCServer.Data
             bool extended = key.Contains('#');
             KeyCode keyCode = GetKeyCode(key.Replace("#", ""));
 
-            if (modifier != null)
+            if (modifier != "")
             {
                 KeyCode modifierCode = GetKeyCode(modifier.Replace("#", ""));
                 WindowsInput.Simulate.Events().Hold(modifierCode).Invoke();
@@ -27,7 +27,7 @@ namespace UFCServer.Data
             bool extended = key.Contains('#');
             KeyCode keyCode = GetKeyCode(key.Replace("#", ""));
 
-            if (modifier != null)
+            if (modifier != "")
             {
                 KeyCode modifierCode = GetKeyCode(modifier.Replace("#", ""));
                 WindowsInput.Simulate.Events().Release(modifierCode).Invoke();

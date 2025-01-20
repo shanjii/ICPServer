@@ -1,4 +1,4 @@
-﻿namespace UFCServer.Models
+﻿namespace UFCServer.Server.Models
 {
     public class SettingsModel
     {

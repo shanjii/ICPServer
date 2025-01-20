@@ -1,13 +1,36 @@
-﻿using Microsoft.Extensions.Hosting;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows;
+using UFCServer.Server;
+using UFCServer.Utils;
+using vJoy.Wrapper;
 
-namespace UFCServer.Data
+namespace UFCServer
 {
-    public class Server
+    class MainApp
     {
-        public static IHost HostBuilder(string Port)
+        public void Startup()
+        {
+            SetVjoy();
+            IHost Host = HostBuilder(Common.GetSettings().Port);
+
+            Host.Start();
+        }
+
+        private void SetVjoy()
+        {
+            VirtualJoystick joystick = new(1);
+            joystick.Aquire();
+        }
+
+        private IHost HostBuilder(string Port)
         {
             return Host.CreateDefaultBuilder().ConfigureWebHostDefaults(webHostBuilder =>
             {
@@ -34,5 +57,4 @@ namespace UFCServer.Data
             }
         }
     }
-
 }
