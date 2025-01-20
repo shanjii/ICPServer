@@ -16,6 +16,8 @@ namespace UFCServer
 {
     class MainApp
     {
+        public static VirtualJoystick joystick; 
+
         public void Startup()
         {
             SetVjoy();
@@ -26,7 +28,8 @@ namespace UFCServer
 
         private void SetVjoy()
         {
-            VirtualJoystick joystick = new(1);
+            var deviceId = uint.Parse(Common.GetSettings().VJoyDeviceId);
+            joystick = new(deviceId);
             joystick.Aquire();
         }
 

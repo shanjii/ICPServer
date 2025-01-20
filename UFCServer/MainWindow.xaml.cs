@@ -9,6 +9,7 @@ namespace UFCServer
     {
         public string Ip { get; set; }
         public string Port { get; set; }
+        public string vJoyDeviceID { get; set; }
 
 
         public MainWindow()
@@ -17,6 +18,7 @@ namespace UFCServer
 
             Ip = Common.GetLocalIp();
             Port = Common.GetSettings().Port;
+            vJoyDeviceID = Common.GetSettings().VJoyDeviceId;
             var mainApp = new MainApp();
 
             try
